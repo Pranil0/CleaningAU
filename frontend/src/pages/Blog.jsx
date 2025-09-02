@@ -128,12 +128,7 @@ const Blog = () => {
           ))}
         </div>
 
-        {/* View More Button */}
-        <div className="flex justify-center mt-12">
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
-            View More
-          </button>
-        </div>
+        
       </section>
     </div>
   );

@@ -17,7 +17,7 @@ import cafeImg from "../assets/cafecleaning.jpg";
 import communityImg from "../assets/communitycleaning.jpg";
 
 const Commercial = () => {
-  useEffect(() => { AOS.init({ duration: 800, once: true }); }, []);
+  useEffect(() => { AOS.init({ duration: 800, once: false }); }, []);
    const navigate = useNavigate();
 
   const industries = [
@@ -237,7 +237,7 @@ className="bg-[#4977E5] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-100px" }}
+    viewport={{ once: false, margin: "-100px" }}
     transition={{ duration: 0.8, ease: "easeOut" }}
     className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#5B74E7] to-[#6C7BFF] px-8 py-16 flex flex-col md:flex-row items-center gap-8 shadow-2xl"
   >
