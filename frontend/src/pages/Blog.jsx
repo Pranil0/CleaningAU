@@ -71,6 +71,7 @@ const Blog = () => {
 
   return (
     <div className="bg-white text-gray-800 pt-[100px]">
+      
       {/* Hero Section */}
       <div
         className="relative w-full h-[250px] flex items-center justify-center"

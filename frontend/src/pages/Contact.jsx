@@ -108,22 +108,19 @@ const Contact = () => {
 
             {/* Service Dropdown */}
             <div>
-              <select className="w-full border rounded-lg px-4 py-3 text-gray-600 outline-none focus:ring-2 focus:ring-blue-500">
-                <option value="">Select the service you’re interested in</option>
-                <option>Carpet Steam Cleaning</option>
-                <option>Upholstery Steam Cleaning</option>
-                <option>Mattress Steam Cleaning</option>
-                <option>Flood Damage Restoration</option>
-                <option>Tile Steam Cleaning</option>
-                <option>Car Seats Steam Cleaning</option>
-                <option>Strata Carpet Steam Cleaning</option>
-                <option>Commercial Carpet Steam Cleaning</option>
-                <option>End of lease Carpet Steam Cleaning</option>
-                <option>Stain Removal</option>
-                <option>Carpet Patch Repair</option>
-                <option>Leather Cleaning</option>
-              </select>
-            </div>
+  <select className="w-full border rounded-lg px-4 py-3 text-gray-600 outline-none focus:ring-2 focus:ring-blue-500">
+    <option value="">Select the service you’re interested in</option>
+    <option>Carpet Steam Cleaning</option>
+    <option>Upholstery Steam Cleaning</option>
+    <option>Mattress Steam Cleaning</option>
+    <option>Flood Damage Restoration</option>
+    <option>Tile Steam Cleaning</option>
+    <option>Car Seats Steam Cleaning</option>
+    <option>Stain Removal</option>
+    <option>Carpet Patch Repair</option>
+    <option>Leather Cleaning</option>
+  </select>
+</div>
 
             {/* Message */}
             <div>
@@ -142,26 +139,32 @@ const Contact = () => {
         </div>
 
         {/* Right: Contact Details */}
-        <div className="bg-gray-50 rounded-2xl shadow-md p-8">
-          <h2 className="text-xl font-semibold mb-6 text-gray-800">
-            Contact Details
-          </h2>
-          <p className="text-gray-600 mb-2">
-            785 15th Street, Office 468
-            <br />
-            Berlin, De 845612
-          </p>
-          <p className="text-gray-600 mb-2">creativeitem@gmail.com</p>
-          <p className="text-blue-600 font-bold text-lg mb-8">+45612345765</p>
+    <div className="bg-gray-50 rounded-2xl shadow-md p-8">
+  <h2 className="text-xl font-semibold mb-6 text-gray-800">
+    Contact Details
+  </h2>
 
-          {/* Social Icons */}
-          <div className="flex space-x-4 text-gray-600 text-lg">
-            <FaFacebookF className="cursor-pointer hover:text-blue-600 transition" />
-            <FaTwitter className="cursor-pointer hover:text-blue-400 transition" />
-            <FaInstagram className="cursor-pointer hover:text-pink-500 transition" />
-            <FaGoogle className="cursor-pointer hover:text-red-500 transition" />
-          </div>
-        </div>
+  {/* Location */}
+  <p className="text-gray-600 mb-2">Sydney, Australia</p>
+
+  {/* Email */}
+  <p className="text-gray-600 mb-2">urbancarpet.au@gmail.com</p>
+
+  {/* Phone Numbers */}
+  <p className="text-blue-600 font-bold text-lg mb-8">
+    0421 556 777<br />
+    0405 303 169
+  </p>
+
+  {/* Social Icons */}
+  <div className="flex space-x-4 text-gray-600 text-lg">
+    <FaFacebookF className="cursor-pointer hover:text-blue-600 transition" />
+    <FaTwitter className="cursor-pointer hover:text-blue-400 transition" />
+    <FaInstagram className="cursor-pointer hover:text-pink-500 transition" />
+    <FaGoogle className="cursor-pointer hover:text-red-500 transition" />
+  </div>
+</div>
+
       </div>
 
       {/* Why Choose Us Section */}

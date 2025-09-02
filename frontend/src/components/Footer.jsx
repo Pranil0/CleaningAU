@@ -146,16 +146,27 @@ const Footer = () => {
 
           {/* Contact Us */}
           <div className="flex-shrink-0 w-full sm:w-auto flex flex-col">
-            <h4 className="font-semibold text-lg mb-4">Contact Us</h4>
-            <div className="flex items-center gap-3 text-gray-300 mb-2">
-              <FaPhoneAlt className="w-5 h-5 flex-shrink-0" />
-              <span>(91) 98765 4321 54</span>
-            </div>
-            <div className="flex items-center gap-3 text-gray-300">
-              <FaEnvelope className="w-5 h-5 flex-shrink-0" />
-              <span>support@mail.com</span>
-            </div>
-          </div>
+  <h4 className="font-semibold text-lg mb-4">Contact Us</h4>
+
+  {/* Phone Numbers */}
+  <div className="flex flex-col gap-2 mb-2 text-gray-300">
+    <div className="flex items-center gap-3">
+      <FaPhoneAlt className="w-5 h-5 flex-shrink-0" />
+      <span>+61 421 556 777</span>
+    </div>
+    <div className="flex items-center gap-3">
+      <FaPhoneAlt className="w-5 h-5 flex-shrink-0" />
+      <span>+61 405 303 169</span>
+    </div>
+  </div>
+
+  {/* Email */}
+  <div className="flex items-center gap-3 text-gray-300">
+    <FaEnvelope className="w-5 h-5 flex-shrink-0" />
+    <span>urbancarpet.au@gmail.com</span>
+  </div>
+</div>
+
         </div>
       </div>
 

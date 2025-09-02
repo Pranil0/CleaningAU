@@ -2,32 +2,28 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import CountUp from "react-countup";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaStar, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 import {
   FaTags,
   FaUserTie,
   FaShieldAlt,
   FaHeadset,
 } from "react-icons/fa";
+import FloatingButtons from "../components/FloatingButtons";
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
-
-
+import { FaTasks, FaSmile, FaClock, FaBroom } from "react-icons/fa";
+import { serviceCards } from "../data/servicesData";
+import ServiceCard from "../components/ServiceCard";
 import cleaningteam from "../assets/cleaningteam.png";
-import cleaningbrush from "../assets/cleaningbrush.png";
-import cleaningman from "../assets/cleaningman.png";
-import leathercleaning from "../assets/leathercleaning.png";
-import upholsteryImage from "../assets/upholsterycleaning.png";
-import mattressImage from "../assets/mattresscleaning.png";
-import tileImage from "../assets/tilecleaning.png";
 import mancleaning from "../assets/mancleaning.png";
 import cleancouch from "../assets/cleancouch.png";
 import mask from "../assets/mask.png";
 import { useNavigate, Link } from "react-router-dom";
-
+import PricingSection from "../components/ PricingSection";
 import blog1Thumbnail from "../assets/blog/blog1Thumbnail.png";
 import blog2Thumbnail from "../assets/blog/blog2Thumbnail.png";
 import blog3Thumbnail from "../assets/blog/blog3Thumbnail.png";
@@ -42,6 +38,7 @@ import blog3Full from "../assets/blog/blog3Full.png";
 import blog4Full from "../assets/blog/blog4Full.png";
 import blog5Full from "../assets/blog/blog5Full.png";
 import blog6Full from "../assets/blog/blog6Full.png";
+import TestimonialsSection from "../components/TestimonialsSection";
 
 const features = [
   {
@@ -64,17 +61,6 @@ const features = [
     title: "Live Support",
     desc: "Help anytime, anywhere",
   },
-];
-const serviceCards = [
-  { title: "Carpet Steam Cleaning", desc: "Deep steam cleaning to remove dirt, stains, and allergens.", img: cleaningbrush },
-  { title: "Upholstery Steam Cleaning", desc: "Remove dirt and stains from sofas, chairs, and more.", img: upholsteryImage },
-  { title: "Mattress Steam Cleaning", desc: "Sanitize and refresh your mattress for healthier sleep.", img: mattressImage },
-  { title: "Flood Damage Restoration", desc: "Professional restoration to minimize water damage.", img: cleaningman },
-  { title: "Leather Cleaning", desc: "Special care for leather furniture to restore its shine.", img: leathercleaning },
-  { title: "Carpet Patch Repair", desc: "Fix damaged or worn sections of your carpets.", img: cleaningbrush },
-  { title: "Stain Removal", desc: "Remove tough stains effectively from various surfaces.", img: cleaningman },
-  { title: "Tile Steam Cleaning", desc: "Deep clean tiles and grout to restore shine.", img: tileImage },
-  { title: "Car Seats Steam Cleaning", desc: "Professional cleaning for car interiors and seats.", img: upholsteryImage },
 ];
 
 // Latest News style cards data
@@ -130,7 +116,9 @@ const Home = () => {
    const navigate = useNavigate();
 
   return (
+      <>
     <section className=" w-full bg-white pt-[150px] pb-16">
+      
       {/* Hero Section */}
       <div
         className="container mx-auto px-6 lg:px-20 flex flex-col lg:flex-row items-center justify-between"
@@ -203,28 +191,11 @@ const Home = () => {
   {/* Show only first 6 service cards */}
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
     {serviceCards.slice(0, 6).map((card, idx) => (
-      <div
-        key={idx}
-        className="group bg-white text-gray-900 rounded-xl p-6 shadow-md hover:scale-105 transition duration-300 hover:bg-[#5B74E7] hover:text-white"
-        data-aos="zoom-in"
-      >
-        <div className="flex justify-center mb-4">
-          <div className="w-20 h-20 rounded-full bg-white p-3 transition duration-300 group-hover:bg-[#5B74E7]">
-            <img
-              src={card.img}
-              alt={card.title}
-              className="w-full h-full object-contain"
-            />
-          </div>
-        </div>
-        <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
-        <p className="text-sm leading-relaxed group-hover:text-white">
-          {card.desc}
-        </p>
-      </div>
+      <ServiceCard key={card.id} {...card} />
     ))}
   </div>
 
+  {/* View More Button */}
   {/* View More Button */}
   {serviceCards.length > 6 && (
     <div className="text-center mt-8">
@@ -304,262 +275,53 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Stats */}
-      <div
-        className="mt-24 py-16 relative px-6 lg:px-20"
-        style={{
-          backgroundImage: `url(${mask})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-        data-aos="fade-up"
-      >
-        <div className="absolute inset-0 bg-blue-600 opacity-60 rounded-3xl"></div>
-        <div className="relative z-10 max-w-7xl mx-auto text-white text-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-          <div>
-            <h3 className="text-4xl font-bold">
-              <CountUp end={500} duration={2} />+
-            </h3>
-            <p className="mt-2">Project Done</p>
-          </div>
-          <div>
-            <h3 className="text-4xl font-bold">
-              <CountUp end={800} duration={2} />
-            </h3>
-            <p className="mt-2">Happy Clients</p>
-          </div>
-          <div>
-            <h3 className="text-4xl font-bold">
-              <CountUp end={18} duration={2} />+
-            </h3>
-            <p className="mt-2">Years Combined Experience</p>
-          </div>
-          <div>
-            <h3 className="text-4xl font-bold">
-              <CountUp end={600} duration={2} />+
-            </h3>
-            <p className="mt-2">Carpets Restored</p>
-          </div>
-        </div>
-      </div>
 
-      
 
-      {/* Pricing Section */}
-      <div
-        className="mt-24 px-6 lg:px-20 max-w-7xl mx-auto"
-        data-aos="fade-up"
-      >
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-          {/* Left Side Text */}
-          <div className="lg:w-1/2">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Save 30% Monthly
-            </h2>
-            <ul className="space-y-4 text-gray-500 text-lg">
-              <li>• “Save 30% Every Month with Our Cleaning Plans”</li>
-              <li>• “Affordable Packages – More Cleaning, Less Cost”</li>
-              <li>• “Get More Shine for Less – Flexible Monthly Options”</li>
-              <li>• “Regular Cleaning, Big Savings – Choose Your Plan”</li>
-            </ul>
-          </div>
+{/* Stats Section with Icons */}
+<div
+  className="mt-24 py-16 relative px-6 lg:px-20 rounded-3xl"
+  style={{
+    backgroundImage: `url(${mask})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+  data-aos="fade-up"
+>
+  {/* Blue overlay for readability */}
+  <div className="absolute inset-0 bg-blue-600 opacity-60 rounded-3xl"></div>
 
-          {/* Right Side Plans */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:w-1/2">
-            {/* Basic Plan */}
-            <div className="bg-white rounded-2xl shadow-md p-8 text-center border">
-              <h3 className="text-xl font-bold text-[#5B74E7] mb-2">
-                Basic Plan
-              </h3>
-              <p className="text-4xl font-bold text-gray-900">
-                $20{" "}
-                <span className="text-base font-medium text-gray-500">
-                  / Month
-                </span>
-              </p>
-              <hr className="my-6" />
-              <ul className="space-y-4 text-gray-700 text-base text-left">
-                <li>• Weekly Home Cleaning</li>
-                <li>• Dusting & Vacuuming</li>
-                <li>• Bathroom & Kitchen Touch-ups</li>
-                <li>• 24/7 Dedicated Support</li>
-              </ul>
-              <button             onClick={() => navigate("/contact")}  // ✅ works for desktop too
-
-className="mt-8 w-full bg-[#5B74E7] text-white py-3 rounded-full font-medium hover:bg-[#3b65cc] transition">
-                Get Now →
-              </button>
-            </div>
-
-            {/* Premium Plan */}
-            <div className="bg-white rounded-2xl shadow-md p-8 text-center border">
-              <h3 className="text-xl font-bold text-[#5B74E7] mb-2">
-                Premium Plan
-              </h3>
-              <p className="text-4xl font-bold text-gray-900">
-                $60{" "}
-                <span className="text-base font-medium text-gray-500">
-                  / Month
-                </span>
-              </p>
-              <hr className="my-6" />
-              <ul className="space-y-4 text-gray-700 text-base text-left">
-                <li>• Everything in Basic</li>
-                <li>• Deep Carpet Cleaning</li>
-                <li>• Full Service + Priority Booking</li>
-                <li>• 24/7 Dedicated Support</li>
-              </ul>
-              <button           
-               onClick={() => navigate("/contact")}  // ✅ works for desktop too
-className="mt-8 w-full bg-[#5B74E7] text-white py-3 rounded-full font-medium hover:bg-[#3b65cc] transition">
-                Get Now →
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Testimonials Section */}
-      <div
-        className="mt-24 px-6 lg:px-20 max-w-7xl mx-auto"
-        data-aos="fade-up"
-      >
-        <h2 className="text-4xl font-bold text-center text-gray-900 mb-6">
-          What Our Clients Say
-        </h2>
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-          Real feedback from our happy customers who have experienced the shine
-          and freshness of our carpet and home cleaning services.
-        </p>
-
-        <Slider
-          dots={true}
-          infinite={true}
-          speed={600}
-          slidesToShow={2}
-          slidesToScroll={1}
-          autoplay={true}
-          autoplaySpeed={5000}
-          pauseOnHover={true}
-          arrows={false}
-          responsive={[
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 1,
-              },
-            },
-          ]}
+  <div className="relative z-10 max-w-7xl mx-auto text-white text-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-16">
+    {[
+      { icon: FaTasks, end: 500, label: "Projects Done", delay: 100 },
+      { icon: FaSmile, end: 800, label: "Happy Clients", delay: 200 },
+      { icon: FaClock, end: 18, label: "Years Combined Experience", delay: 300 },
+      { icon: FaBroom, end: 600, label: "Carpets Restored", delay: 400 },
+    ].map((stat, idx) => {
+      const Icon = stat.icon;
+      return (
+        <div
+          key={idx}
+          data-aos="fade-up"
+          data-aos-delay={stat.delay}
+          className="flex flex-col items-center transition transform hover:scale-105"
         >
-          {/* Testimonial 1 */}
-          <div className="p-6">
-            <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col items-center text-center h-full transform transition duration-300 hover:scale-105 hover:shadow-xl">
-              <img
-                src="https://randomuser.me/api/portraits/women/44.jpg"
-                alt="Client"
-                className="w-20 h-20 rounded-full mb-4 object-cover"
-              />
-              <p className="text-gray-600 mb-4 italic">
-                “I was amazed by the difference after the carpet cleaning! It
-                looks brand new, and the team was so professional and punctual.”
-              </p>
-              <div className="flex gap-1 text-yellow-400 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <FaStar key={i} />
-                ))}
-              </div>
-              <h4 className="text-lg font-semibold text-gray-800">
-                Sarah Johnson
-              </h4>
-              <span className="text-sm text-gray-500">
-                Homeowner, Melbourne
-              </span>
-            </div>
-          </div>
+          <Icon className="text-4xl md:text-5xl mb-3" />
+          <h3 className="text-4xl md:text-4xl font-bold">
+            <CountUp end={stat.end} duration={2} />+
+          </h3>
+          <p className="mt-2 text-lg md:text-lg">{stat.label}</p>
+        </div>
+      );
+    })}
+  </div>
+</div>
 
-          {/* Testimonial 2 */}
-          <div className="p-6">
-            <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col items-center text-center h-full transform transition duration-300 hover:scale-105 hover:shadow-xl">
-              <img
-                src="https://randomuser.me/api/portraits/men/35.jpg"
-                alt="Client"
-                className="w-20 h-20 rounded-full mb-4 object-cover"
-              />
-              <p className="text-gray-600 mb-4 italic">
-                “Highly recommend their services. We got our office carpets
-                cleaned and were impressed with the spotless results and fresh
-                smell.”
-              </p>
-              <div className="flex gap-1 text-yellow-400 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <FaStar key={i} />
-                ))}
-              </div>
-              <h4 className="text-lg font-semibold text-gray-800">
-                David Thompson
-              </h4>
-              <span className="text-sm text-gray-500">
-                Office Manager, Sydney
-              </span>
-            </div>
-          </div>
 
-          {/* Testimonial 3 */}
-          <div className="p-6">
-            <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col items-center text-center h-full transform transition duration-300 hover:scale-105 hover:shadow-xl">
-              <img
-                src="https://randomuser.me/api/portraits/women/65.jpg"
-                alt="Client"
-                className="w-20 h-20 rounded-full mb-4 object-cover"
-              />
-              <p className="text-gray-600 mb-4 italic">
-                “Affordable and reliable carpet cleaning service. My pets had
-                made quite a mess, but they handled it with care and detail.”
-              </p>
-              <div className="flex gap-1 text-yellow-400 mb-2">
-                {[...Array(4)].map((_, i) => (
-                  <FaStar key={i} />
-                ))}
-                <FaStar className="text-gray-300" />
-              </div>
-              <h4 className="text-lg font-semibold text-gray-800">
-                Emily White
-              </h4>
-              <span className="text-sm text-gray-500">
-                Pet Owner, Brisbane
-              </span>
-            </div>
-          </div>
 
-          {/* Testimonial 4 */}
-          <div className="p-6">
-            <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col items-center text-center h-full transform transition duration-300 hover:scale-105 hover:shadow-xl">
-              <img
-                src="https://randomuser.me/api/portraits/men/77.jpg"
-                alt="Client"
-                className="w-20 h-20 rounded-full mb-4 object-cover"
-              />
-              <p className="text-gray-600 mb-4 italic">
-                “Their team arrived on time, explained the process, and
-                completed the job efficiently. I will be using their services
-                again!”
-              </p>
-              <div className="flex gap-1 text-yellow-400 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <FaStar key={i} />
-                ))}
-              </div>
-              <h4 className="text-lg font-semibold text-gray-800">
-                James Lee
-              </h4>
-              <span className="text-sm text-gray-500">
-                Restaurant Owner, Adelaide
-              </span>
-            </div>
-          </div>
-        </Slider>
-      </div>
+      <PricingSection/>
+    
 
+      <TestimonialsSection/>
       {/* Contact Section */}
       <div
         className="mt-24 px-6 lg:px-20 max-w-7xl mx-auto"
@@ -759,6 +521,8 @@ className="mt-8 w-full bg-[#5B74E7] text-white py-3 rounded-full font-medium hov
   </motion.div>
 </div>
     </section>
+
+    </>
   );
 };
 

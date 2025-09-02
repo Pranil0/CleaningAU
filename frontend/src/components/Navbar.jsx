@@ -31,27 +31,30 @@ const Navbar = () => {
         </div>
 
         {/* Contact Info */}
-        <div className="flex items-center space-x-6 font-medium">
-          <span className="flex items-center gap-1">
-            <FaPhoneAlt /> (91) 98765 4321 54
-          </span>
-          <span className="flex items-center gap-1">
-            <FaEnvelope /> support@mail.com
-          </span>
-          <span className="flex items-center gap-1">
-            <FaMapMarkerAlt /> 380 Albart ST, AU
-          </span>
-          <span className="flex items-center gap-1">
-            <FaClock /> Sunday–Friday 9:00am–10pm
-          </span>
-        </div>
+        <div className="flex flex-col md:flex-row md:items-center md:space-x-6 space-y-2 md:space-y-0 font-medium text-white text-sm">
+  <span className="flex items-center gap-1">
+    <FaPhoneAlt /> +61 421 556 777, +61 405 303 169
+  </span>
+  <span className="flex items-center gap-1">
+    <FaEnvelope /> urbancarpet.au@gmail.com
+  </span>
+  <span className="flex items-center gap-1">
+    <FaMapMarkerAlt /> Sydney, Australia
+  </span>
+  <span className="flex items-center gap-1">
+    <FaClock /> Open 24/7
+  </span>
+</div>
+
       </div>
 
       {/* Main Navbar */}
       <div className="backdrop-blur-lg bg-white/70 border-b border-white/20 px-6 py-4 flex items-center justify-between transition-all duration-300">
         {/* Logo */}
         <div className="flex items-center gap-2">
+          <Link to="/" className="hover:text-[#4977E5]">
           <img src={cleaninglogo} alt="Cleaning Logo" className="h-10 w-auto" />
+          </Link>
         </div>
 
         {/* Desktop Nav */}
@@ -69,19 +72,83 @@ const Navbar = () => {
   </Link>
 
   {/* Dropdown */}
-  <div className="absolute left-0 top-full mt-2 w-64 backdrop-blur-xl bg-white/80 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-white/20">
-    <ul className="py-2 text-sm text-gray-700">
-      <li><Link to="/services/Carpetcleaning" className="block px-4 py-2 hover:text-[#4977E5]">Carpet Steam Cleaning</Link></li>
-      <li><Link to="/services/upholstery-cleaning" className="block px-4 py-2 hover:text-[#4977E5]">Upholstery Steam Cleaning</Link></li>
-      <li><Link to="/services/Mattresscleaning" className="block px-4 py-2 hover:text-[#4977E5]">Mattress Steam Cleaning</Link></li>
-      <li><Link to="/services/Flooddamage" className="block px-4 py-2 hover:text-[#4977E5]">Flood Damage Restoration</Link></li>
-      <li><Link to="/services/Tilecleaning" className="block px-4 py-2 hover:text-[#4977E5]">Tile Steam Cleaning</Link></li>
-      <li><Link to="/services/CarSeatSteamCleaning" className="block px-4 py-2 hover:text-[#4977E5]">Car Seats Steam Cleaning</Link></li>
-      <li><Link to="/services/Strainremoval" className="block px-4 py-2 hover:text-[#4977E5]">Stain Removal</Link></li>
-      <li><Link to="/services/CarpetPatchRepair" className="block px-4 py-2 hover:text-[#4977E5]">Carpet Patch Repair</Link></li>
-      <li><Link to="/services/Leathercleaning" className="block px-4 py-2 hover:text-[#4977E5]">Leather Cleaning</Link></li>
-    </ul>
-  </div>
+ <div className="absolute left-0 top-full mt-2 w-64 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-200">
+  <ul className="py-2 text-sm text-gray-800">
+    <li>
+      <Link
+        to="/services/Carpet-cleaning"
+        className="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 transition rounded"
+      >
+        Carpet Steam Cleaning
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/services/upholstery-cleaning"
+        className="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 transition rounded"
+      >
+        Upholstery Steam Cleaning
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/services/mattress-cleaning"
+        className="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 transition rounded"
+      >
+        Mattress Steam Cleaning
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/services/flood-damage-restoration"
+        className="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 transition rounded"
+      >
+        Flood Damage Restoration
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/services/tile-cleaning"
+        className="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 transition rounded"
+      >
+        Tile Steam Cleaning
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/services/car-seats-steam-cleaning"
+        className="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 transition rounded"
+      >
+        Car Seats Steam Cleaning
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/services/stain-removal"
+        className="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 transition rounded"
+      >
+        Stain Removal
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/services/carpet-patch-repair"
+        className="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 transition rounded"
+      >
+        Carpet Patch Repair
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/services/leather-cleaning"
+        className="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 transition rounded"
+      >
+        Leather Cleaning
+      </Link>
+    </li>
+  </ul>
+</div>
+
 </div>
 
 
