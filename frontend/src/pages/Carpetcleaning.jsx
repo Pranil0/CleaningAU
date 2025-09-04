@@ -3,7 +3,7 @@ import { FaHome, FaStar, FaCheckCircle } from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 // Images
 import CarpetImgba from "../assets/Carpetsteamcleaning.jpg";
 import cleancouch from "../assets/cleancouch.png";
@@ -44,7 +44,25 @@ const Carpetcleaning = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <FaHome className="text-white" /> Home / Service
+    
+          
+   <div className="flex items-center justify-center gap-2 text-sm mt-2">
+  <FaHome className="text-white" />
+  <Link
+    to="/"
+    className="hover:underline hover:text-gray-200 transition-colors"
+  >
+    Home
+  </Link>
+  <span>›</span>
+  <Link
+    to="/services"
+    className="hover:underline hover:text-gray-200 transition-colors font-medium"
+  >
+    Services
+  </Link>
+</div>
+
         </motion.p>
 
 <motion.h1
